@@ -18,10 +18,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
-            id: meta
-            uses: docker/metadata-action@v5
-            with:
-              images: my-docker-hub-namespace/my-docker-hub-repository
+          id: meta
+          uses: docker/metadata-action@v5
+          with:
+            images: ${{ env.HUB_DOCKER_IMAGE_FULL_NAME }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
