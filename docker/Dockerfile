@@ -21,6 +21,10 @@ RUN apt-get update ;\
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/leoheck/kiri/main/install_dependencies.sh)"
 RUN bash -c "INSTALL_KIRI_REMOTELLY=1; $(curl -fsSL https://raw.githubusercontent.com/leoheck/kiri/main/install_kiri.sh)"
 
+RUN pip install \
+	"mistune>=2.0.2,<=2.0.5" \
+	pcbdraw
+
 EXPOSE 8282
 
 COPY docker-entrypoint.sh /usr/local/bin/

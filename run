@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+podman run -it -v $SCRIPT_DIR/:/root/project -w /root/project kicad_toolchain:latest /bin/bash
+
